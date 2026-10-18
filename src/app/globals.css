@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+:root {
+  /* SA'DA H2O — premium DARK theme (from h2o.sadawater.com) */
+  color-scheme: dark;
+
+  --color-blue: #0EA5E9;        /* sky accent */
+  --color-dark-blue: #0284C7;   /* accent deep */
+  --color-medium-blue: #7DD3FC; /* accent light */
+  --color-teal: #2DD4BF;
+  --color-deep-navy: #080C14;   /* brand near-black */
+  --color-light-grey: #1E293B;
+  --color-orange: #FBBF24;
+  --color-charcoal: #0F172A;
+
+  /* Semantic Colors (dark) */
+  --color-primary: #A3E635;
+  --color-primary-hover: #BEF264;
+  --color-primary-muted: #D9F99D;
+  --background: #080C14;          /* page */
+  --surface: #111A2B;            /* subtle fills, hovers, table headers */
+  --surface-elevated: #141B2D;   /* cards */
+  --foreground: #F1F5F9;
+  --text-muted: #94A3B8;
+  --border: #1E293B;
+  --success: #2DD4BF;
+  --warning: #FBBF24;
+  --error: #F87171;
+  --whatsapp: #25D366;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-primary-muted: var(--color-primary-muted);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-whatsapp: var(--whatsapp);
+  --color-teal: var(--color-teal);
+  --color-deep-navy: var(--color-deep-navy);
+  --color-orange: var(--color-orange);
+  --color-charcoal: var(--color-charcoal);
+
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-inter);
+  --font-code: var(--font-jetbrains-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), Georgia, serif;
+  letter-spacing: -0.2px;
+}
+
+code, pre, kbd {
+  font-family: var(--font-code), monospace;
+}
+
+/* Smooth transitions for interactive elements */
+button, a, input, textarea, select {
+  transition: all 0.15s ease;
+}
+
+/* Staggered entrance for dashboard cards (apply with inline animation-delay). */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
